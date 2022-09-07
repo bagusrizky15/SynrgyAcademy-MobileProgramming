@@ -41,4 +41,9 @@ fun main() {
     for (i in range){
         println(i)
     }
-}
+
+    var items = listOf<String>("Bagus", "Rizky")
+        for (item in items)
+            println(item)
+    }
+
