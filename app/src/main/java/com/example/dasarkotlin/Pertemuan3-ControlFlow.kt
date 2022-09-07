@@ -45,5 +45,11 @@ fun main() {
     var items = listOf<String>("Bagus", "Rizky")
         for (item in items)
             println(item)
+
+    //ngeloop indexnya
+    for (objItem in items.indices)
+        println(objItem)
+
+
     }
 
