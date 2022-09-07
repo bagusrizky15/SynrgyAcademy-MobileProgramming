@@ -50,6 +50,13 @@ fun main() {
     for (objItem in items.indices)
         println(objItem)
 
+    println("=====")
+    //ngeloop indexnya
+    for (objItem in items.indices)
+        println(items[0])
+
+    val size = items.size
+    println(size)
 
     }
 
