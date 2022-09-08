@@ -94,13 +94,5 @@ fun main() {
 //        }
 //    }
 
-    for (angka in 1..5){
-        println(angka)
-        if (angka%2==0){
-            return
-        }
-
-    }
-
 }
 
