@@ -1,5 +1,7 @@
 package com.example.dasarkotlin
 
+import androidx.core.content.contentValuesOf
+
 fun main() {
 
 //    //Recal Materi kemarin
@@ -67,19 +69,38 @@ fun main() {
 //    }
 
     //Hands on Time
-    val tinggiBadan = 1.69
-    val beratBadan = 70
-    val bmi = beratBadan /  (tinggiBadan *  tinggiBadan)
-    println(bmi)
+//    val tinggiBadan = 1.69
+//    val beratBadan = 70
+//    val bmi = beratBadan /  (tinggiBadan *  tinggiBadan)
+//    println(bmi)
+//
+//    val cekBMI = when(bmi) {
+//         in 0.0..18.5 -> "Kurang"
+//         in 18.5..22.9 ->  "Normal"
+//         in 23.0..24.9 -> "Kelebihan"
+//         in 25.0..29.9 -> "Obesitas tk 1"
+//         else -> "Ob tk 2"
+//    }
+//    println(cekBMI)
 
-    val cekBMI = when(bmi) {
-         in 0.0..18.5 -> "Kurang"
-         in 18.5..22.9 ->  "Normal"
-         in 23.0..24.9 -> "Kelebihan"
-         in 25.0..29.9 -> "Obesitas tk 1"
-         else -> "Ob tk 2"
+//    val range = 0..5
+//    for (i in range){
+//        println(i)
+//        if (i%2==0)
+//        {
+//            break
+//        }else {
+//            continue
+//        }
+//    }
+
+    for (angka in 1..5){
+        println(angka)
+        if (angka%2==0){
+            return
+        }
+
     }
-    println(cekBMI)
 
 }
 
