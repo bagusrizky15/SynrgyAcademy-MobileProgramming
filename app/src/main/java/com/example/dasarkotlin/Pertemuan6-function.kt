@@ -17,9 +17,20 @@ fun Int.toHuruf(){
     }
 }
 
+class Vehicle{
+    companion object {
+        var RODA = 4
+        fun caraBergerak() = "bergerak maju kedepan"
+    }
+}
+
 fun main(){
     println(perkalian(2,3))
     println(1.toHuruf())
     3.toHuruf()
-    
+
+    Vehicle.RODA
+    Vehicle.caraBergerak()
+
+    println(Vehicle.RODA)
 }
