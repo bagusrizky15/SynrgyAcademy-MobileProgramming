@@ -35,15 +35,6 @@ fun pangkat(x: Int, y:Int): Int {
     return angka
 }
 
-//pangkat ekstension
-fun Double.pkt(pangkat: Int) Int{
-    var res =1.0
-    for (i in 1 until pangkat){
-        res *= this
-    }
-    return res.roundToInt()
-}
-
 fun main(){
 
     println(pangkat(3,2))
@@ -61,11 +52,4 @@ fun main(){
 
     println(Vehicle.RODA)
 
-    val pangkatA: (Int, Int) -> Int = {angkaQ,y ->
-        var angkaP = angkaQ
-        for (i in 1 until y){
-            angkaP *= angkaQ
-        }
-        return angkaP
-    }
 }
