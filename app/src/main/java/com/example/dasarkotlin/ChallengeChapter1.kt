@@ -49,7 +49,7 @@ fun layangBintang(){
     for (i in n downTo 1) {
 
         for (k in 1..n - i) {
-            print("  ")
+            print(" ")
         }
 
         for (j in i..2 * i - 1) {
