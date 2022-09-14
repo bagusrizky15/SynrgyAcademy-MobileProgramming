@@ -34,8 +34,39 @@ fun piramidaTerbalikBintang(){
     }
 }
 
+fun layangBintang(){
+    var n = 8
+    for(i in 1 until n){
+        for(j in 1 until n-i){
+            print(" ")
+        }
+        for(k in 1 until i){
+            print("* ")
+        }
+        println("")
+    }
+
+    for (i in n downTo 1) {
+
+        for (k in 1..n - i) {
+            print("  ")
+        }
+
+        for (j in i..2 * i - 1) {
+            print("* ")
+        }
+
+        for (j in 0..i - 1 - 1) {
+            print("* ")
+        }
+
+        println()
+    }
+}
+
 
 fun main(){
    // piramidaBintang()
-    piramidaTerbalikBintang()
+    //piramidaTerbalikBintang()
+    layangBintang()
 }
