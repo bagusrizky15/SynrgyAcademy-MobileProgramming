@@ -74,9 +74,14 @@ fun layangBintang(){
 
 }
 
+//nomor 4
+fun xBintang(){
+
+}
 
 fun main(){
    // piramidaBintang()
     //piramidaTerbalikBintang()
-    layangBintang()
+   // layangBintang()
+    xBintang()
 }
