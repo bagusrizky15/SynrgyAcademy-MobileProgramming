@@ -97,7 +97,16 @@ fun xBintang(){
 
 //nomor 5
 fun hollowBintang(){
-    
+    val st = 1
+    val b = 7
+
+    for (i in 1..b+1)
+        for (j in 1..b-i+1)
+            println(" ")
+
+        for (k in 1..st+1 )
+            if (i = 1 || i = n || k = 1 || k = st)
+
 }
 
 
