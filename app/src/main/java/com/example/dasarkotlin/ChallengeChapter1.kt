@@ -97,14 +97,9 @@ fun xBintang(){
 
 //nomor 5
 fun hollowBintang(){
-    val b = 0
-
-    for (i in 1..b+1)
-        for (j in 1..b-i+1)
-            println(" ")
-
-        for (k in 1..st+1 )
-            if (i = 1 || i = n || k = 1 || k = st)
+    val n = 6
+    for (i in 1..n)
+        for (j in )
 
 }
 
@@ -115,4 +110,5 @@ fun main(){
     //piramidaTerbalikBintang()
    // layangBintang()
     //xBintang()
+    hollowBintang()
 }
