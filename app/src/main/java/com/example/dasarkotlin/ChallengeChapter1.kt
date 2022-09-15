@@ -128,9 +128,9 @@ fun hollowBintang(){
 
 
 fun main(){
-   // piramidaBintang()
-    //piramidaTerbalikBintang()
-   // layangBintang()
-    //xBintang()
+    piramidaBintang()
+    piramidaTerbalikBintang()
+    layangBintang()
+    xBintang()
     hollowBintang()
 }
