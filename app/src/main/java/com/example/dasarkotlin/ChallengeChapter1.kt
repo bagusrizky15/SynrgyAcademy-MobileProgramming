@@ -97,10 +97,26 @@ fun xBintang(){
 
 //nomor 5
 fun hollowBintang(){
-    val n = 6
-    for (i in 1..n)
-        for (j in )
+    val rows = 5
+    var k = 0
 
+    for (i in 1..rows) {
+        for (space in 1..rows - i) {
+            print("  ")
+        }
+
+        while (k != 2 * i - 1) {
+            if (i<rows){
+                if(k==0 || k == 2 * i - 2) print("* ") else print("  ")
+            } else {
+                if(k % 2 == 0) print("* ") else print("  ")
+            }
+            ++k
+        }
+
+        println()
+        k = 0
+    }
 }
 
 

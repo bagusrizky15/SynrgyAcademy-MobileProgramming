@@ -1,13 +1,14 @@
 package com.example.dasarkotlin
 
-fun ArrayChallenge(arr: Array<Int>): Int {
-
+fun ArrayChallenge(arr: Array<Int>){
+    var tmp = 0
     // write your code here
-
+    for (i in arr)
+        tmp = i - (i + 1)
 }
 
 fun main() {
-    println(ArrayChallenge(readLine()))
+    println(ArrayChallenge(readLine1()))
 }
 
 //input 1
