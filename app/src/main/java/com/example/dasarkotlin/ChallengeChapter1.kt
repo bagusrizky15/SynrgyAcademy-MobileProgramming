@@ -107,7 +107,13 @@ fun hollowBintang(){
 
         while (k != 2 * i - 1) {
             if (i<rows){
-                if(k==0 || k == 2 * i - 2) print("* ") else print("  ")
+                if(k==0 || k == 2 * i - 2){
+                    print("* ")
+                }
+                else{
+                    print("  ")
+                }
+
             } else {
                 print("* ")
             }
