@@ -97,8 +97,7 @@ fun xBintang(){
 
 //nomor 5
 fun hollowBintang(){
-    val st = 1
-    val b = 7
+    val b = 0
 
     for (i in 1..b+1)
         for (j in 1..b-i+1)
