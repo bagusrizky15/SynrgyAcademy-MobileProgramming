@@ -76,12 +76,35 @@ fun layangBintang(){
 
 //nomor 4
 fun xBintang(){
+    var starCount = 5;
+    val count = starCount * 2 - 1;
 
+    for(i in 1..count){
+        for(j in 1..count){
+            if(j==i || (j==count - i + 1))
+            {
+                print("*");
+            }
+            else
+            {
+                print(" ");
+            }
+        }
+
+        println("")
+    }
 }
+
+//nomor 5
+fun hollowBintang(){
+    
+}
+
+
 
 fun main(){
    // piramidaBintang()
     //piramidaTerbalikBintang()
    // layangBintang()
-    xBintang()
+    //xBintang()
 }
