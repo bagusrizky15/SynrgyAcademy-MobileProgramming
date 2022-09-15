@@ -109,7 +109,7 @@ fun hollowBintang(){
             if (i<rows){
                 if(k==0 || k == 2 * i - 2) print("* ") else print("  ")
             } else {
-                if(k % 2 == 0) print("* ") else print("  ")
+                print("* ")
             }
             ++k
         }
