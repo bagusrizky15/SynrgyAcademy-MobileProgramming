@@ -37,37 +37,27 @@ fun piramidaTerbalikBintang(){
 
 //nomor 3
 fun layangBintang(){
-    var n = 8
-//    for(i in 0 until n){
-//        for(j in 0 until n-i){
-//            print(" ")
-//        }
-//        for(k in 0 until i){
-//            print("* ")
-//        }
-//        println("")
-//    }
-    for (i in n downTo 1) {
+    val rowsUp = 4
+    val rowsDown = 3
+    var k = 0
 
-
-        for (j in 0..i - 1 - 1) {
-            print("ab")
+    for (i in 1..rowsUp) {
+        for (space in 1..rowsUp - i) {
+            print("  ")
         }
 
-//        for (j in i..2 * i - 1) {
-//            print("*=")
-//        }
-//
-//        for (k in 1..n - i) {
-//            print("xd")
-//        }
+        while (k != 2 * i - 1) {
+            print("* ")
+            ++k
+        }
 
         println()
+        k = 0
     }
 
-    for (i in n downTo 1) {
+    for (i in rowsDown downTo 1) {
 
-        for (k in 1..n - i) {
+        for (space in 0..rowsDown - i) {
             print("  ")
         }
 
@@ -81,6 +71,7 @@ fun layangBintang(){
 
         println()
     }
+
 }
 
 
