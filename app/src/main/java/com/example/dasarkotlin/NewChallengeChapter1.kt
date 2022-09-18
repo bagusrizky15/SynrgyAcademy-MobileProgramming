@@ -5,18 +5,18 @@ import kotlin.collections.HashMap
 
 //nomor 1
 fun ArrayChallenge(arr: Array<Int>): Int{
-    var tmp:Int = 0
     var hasil:Int = 0
     for (i in arr.indices) {
         for (j in arr.indices){
            hasil = arr[j+1] - arr[i]
-            if (hasil>arr[j+1] - arr[i])
-                tmp = hasil
-            else
-                tmp = -1
+            if (hasil>arr[j+1] - arr[i]){
+                hasil = arr[j+1] - arr[i]
+            }else{
+                return -1
+            }
         }
     }
-    return tmp
+    return hasil
 }
 
 //nomor 2
