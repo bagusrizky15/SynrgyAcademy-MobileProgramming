@@ -55,6 +55,7 @@ fun isAnagram(a: String, b: String): Boolean {
 fun main() {
     println("NOMOR 1")
     println(ArrayChallenge(readLine1()))
+    println(ArrayChallenge(readLine2()))
 
 //    println("NOMOR 2")
 //    println(formatNumber(readLineA()))
@@ -72,7 +73,7 @@ fun main() {
 fun readLine1(): Array<Int> = arrayOf(44, 30, 24, 32, 35, 30, 40, 38, 15)
 
 //input 2
-//fun readLine2(): Array<Int> = arrayOf(10, 9, 8, 2)
+fun readLine2(): Array<Int> = arrayOf(10, 9, 8, 2)
 
 //input 1
 fun readLineA() = "0851-6231-7243"
