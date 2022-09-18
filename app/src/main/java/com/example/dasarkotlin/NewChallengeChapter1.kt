@@ -4,12 +4,19 @@ import androidx.annotation.RequiresApi
 import kotlin.collections.HashMap
 
 //nomor 1
-fun ArrayChallenge(arr: Array<Int>){
+fun ArrayChallenge(arr: Array<Int>): Int{
     var tmp:Int = 0
     var hasil:Int = 0
-    for (j in arr) {
-
+    for (i in arr.indices) {
+        for (j in arr.indices){
+           hasil = arr[j+1] - arr[i]
+            if (hasil>arr[j+1] - arr[i])
+                tmp = hasil
+            else
+                tmp = -1
+        }
     }
+    return tmp
 }
 
 //nomor 2
