@@ -7,13 +7,35 @@
     tools:context=".LoginActivity">
 
     <ImageView
+        android:id="@+id/ivBannerLogin"
+        android:src="@drawable/bg_login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"/>
 
-    <TextView
-        android:id="@+id/tvWelcome"
-        android:text="" e
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_welcome"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="7dp" />
+
+        <TextView
+            android:id="@+id/tvSignin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/tv_signin"
+            app:layout_constraintTop_toBottomOf="@+id/tvWelcome"
+            tools:layout_editor_absoluteX="26dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/tv_phone"
+            app:layout_constraintTop_toBottomOf="@+id/tvSignin"
+            tools:layout_editor_absoluteX="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
