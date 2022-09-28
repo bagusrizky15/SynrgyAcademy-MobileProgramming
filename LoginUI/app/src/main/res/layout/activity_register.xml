@@ -9,11 +9,62 @@
     <ImageView
         android:id="@+id/ivBannerRegister"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:scaleType="centerCrop"
         android:src="@drawable/bg_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_marginStart="@dimen/md_padding"
+        android:id="@+id/tvWelcome"
+        android:textSize="@dimen/small_text_size"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/md_padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_welcome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivBannerRegister" />
+
+    <TextView
+        android:layout_marginStart="@dimen/md_padding"
+        android:id="@+id/tvRegister"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/sm_padding"
+        android:textSize="@dimen/large_text_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_register"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
+
+    <TextView
+        android:layout_marginStart="@dimen/md_padding"
+        android:id="@+id/tvEmail"
+        android:textSize="@dimen/small_text_size"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/md_padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
+
+    <TextView
+        android:id="@+id/tvHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/tv_help"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/small_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toEndOf="@+id/tvEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
