@@ -6,7 +6,8 @@
     <string name="tv_signin_google">Sign with Google</string>
     <string name="tv_help">Help</string>
     <string name="tv_register">Register</string>
-    <string name="tv_Aregister" tools:ignore="StringEscaping">Doesn't has any account?</string>
+    <string name="tv_aregister">Doesn\'t has any account?</string>
     <string name="tv_registerHere">Register here</string>
     <string name="tv_signinHere">Sign in here</string>
+    <string name="tv_rules">Use the application to policy rules. Any kinds of violations will be subject to sanctions.</string>
 </resources>
