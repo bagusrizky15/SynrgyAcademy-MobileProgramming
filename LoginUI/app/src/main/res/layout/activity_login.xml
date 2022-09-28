@@ -6,36 +6,76 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <ImageView
-        android:id="@+id/ivBannerLogin"
-        android:src="@drawable/bg_login"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:scaleType="centerCrop"/>
+        <ImageView
+            android:id="@+id/ivBannerLogin"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:layout_marginStart="@dimen/md_padding"
             android:id="@+id/tvWelcome"
+            android:textSize="@dimen/small_text_size"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/md_padding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tv_welcome"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="7dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivBannerLogin" />
 
         <TextView
+            android:layout_marginStart="@dimen/md_padding"
             android:id="@+id/tvSignin"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/sm_padding"
+            android:textSize="@dimen/large_text_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="@string/tv_signin"
-            app:layout_constraintTop_toBottomOf="@+id/tvWelcome"
-            tools:layout_editor_absoluteX="26dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
 
         <TextView
+            android:layout_marginStart="@dimen/md_padding"
+            android:id="@+id/tvPhone"
+            android:textSize="@dimen/medium_text_size"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/md_padding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:text="@string/tv_phone"
-            app:layout_constraintTop_toBottomOf="@+id/tvSignin"
-            tools:layout_editor_absoluteX="16dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSignin" />
+
+<!--        <com.hbb20.CountryCodePicker-->
+<!--            android:id="@+id/ccp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="68dp"-->
+<!--            android:layout_marginTop="48dp"-->
+<!--            android:layout_marginEnd="22dp"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/editTextPhone"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tvPhone" />-->
+
+        <EditText
+            android:background="@drawable/custom_input"
+            android:id="@+id/editTextPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.447"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
