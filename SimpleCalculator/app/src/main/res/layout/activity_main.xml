@@ -114,11 +114,14 @@
         app:layout_constraintTop_toBottomOf="@id/calculate_button" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:textSize="55dp"
+        android:textAlignment="center"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:text="200000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/calculate_button"
         app:layout_constraintTop_toBottomOf="@id/tip_result" />
 
