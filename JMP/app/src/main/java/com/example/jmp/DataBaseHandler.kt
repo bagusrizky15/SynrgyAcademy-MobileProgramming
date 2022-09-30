@@ -43,21 +43,21 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
             Toast.makeText(context,"Berhasil Menambah Data",Toast.LENGTH_SHORT).show()
     }
 
-    fun readData() : MutableList<User>{
-        var list : MutableList<User> = ArrayList()
-
-        val db = this.readableDatabase
-        val query = "Select * FROM" + TABLE_NAME
-        val result = db.rawQuery(query, null)
-        if (result.moveToFirst()){
-            do {
-
-            }while (result)
-        }
-
-        result.close()
-        db.close()
-        return list
-    }
+//    fun readData() : MutableList<User>{
+//        var list : MutableList<User> = ArrayList()
+//
+//        val db = this.readableDatabase
+//        val query = "Select * FROM" + TABLE_NAME
+//        val result = db.rawQuery(query, null)
+//        if (result.moveToFirst()){
+//            do {
+//
+//            }while (result)
+//        }
+//
+//        result.close()
+//        db.close()
+//        return list
+//    }
 
 }
