@@ -1,11 +1,18 @@
 package com.example.jmp
 
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.core.app.ActivityCompat
 import com.example.jmp.databinding.ActivityMainBinding
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import org.w3c.dom.Text
+import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,12 +24,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var alamat: TextView
     private lateinit var nomor: TextView
     private lateinit var radioGrup: RadioGroup
+    private lateinit var mFusedLocationClient: FusedLocationProviderClient
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         binding =  ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //inisialisasi location service
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
         //validasi
         namaFocusListener()
         phoneFocusListener()
@@ -46,6 +58,30 @@ class MainActivity : AppCompatActivity() {
                 db.insertData(user)
             }
         }
+    }
+
+    //cek lokasi
+    private fun isLocationEnabled(): Boolean {
+        val locationManager =
+            getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
+            LocationManager.NETWORK_PROVIDER
+        )
+    }
+
+    //cek permission
+    private fun checkPermissions(): Boolean{
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCES_COARSE_LOCATION)
+        == PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                )
+            == PackageManager.PERMISSION_GRANTED
+        ){
+            return true
+        }
+        return false
     }
 
     //validasi nama
