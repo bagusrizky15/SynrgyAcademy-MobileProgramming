@@ -15,6 +15,11 @@ class MainActivity : AppCompatActivity() {
         phoneFocusListener()
         alamatFocusListener()
 
+        binding.btnSubmit.setOnClickListener{submitForm()}
+    }
+
+    private fun submitForm() {
+        
     }
 
     private fun namaFocusListener() {
@@ -45,6 +50,7 @@ class MainActivity : AppCompatActivity() {
             {
                 binding.containerAlamat.helperText = validAlamat()
             }
+
         }
     }
 
@@ -53,6 +59,10 @@ class MainActivity : AppCompatActivity() {
         if (alamatText.matches(".*[0-9].*".toRegex()))
         {
             return "Harus alphabet!"
+        }
+        if (alamatText.isEmpty())
+        {
+            return "Alamat belum diisi"
         }
         return null
     }
@@ -75,6 +85,10 @@ class MainActivity : AppCompatActivity() {
         if (!phoneText.matches(".*[0-9].*".toRegex()))
         {
             return "Harus angka!"
+        }
+        if (phoneText.isEmpty())
+        {
+            return "Nomor HP belum diisi"
         }
         return null
     }
