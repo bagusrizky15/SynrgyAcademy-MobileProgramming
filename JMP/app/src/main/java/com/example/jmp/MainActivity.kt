@@ -2,6 +2,8 @@ package com.example.jmp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import com.example.jmp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,11 +17,8 @@ class MainActivity : AppCompatActivity() {
         phoneFocusListener()
         alamatFocusListener()
 
-        binding.btnSubmit.setOnClickListener{submitForm()}
-    }
-
-    private fun submitForm() {
-        
+        val radioButton1 = findViewById<RadioButton>(R.id.rbLaki)
+        val radioButton2 = findViewById<RadioButton>(R.id.rbPerempuan)
     }
 
     private fun namaFocusListener() {
