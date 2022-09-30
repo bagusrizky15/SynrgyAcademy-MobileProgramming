@@ -2,12 +2,15 @@ package com.example.jmp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import com.example.jmp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var btnSubmit : Button
     private lateinit var binding : ActivityMainBinding
+    private lateinit var radioGrup: RadioGroup
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -17,8 +20,14 @@ class MainActivity : AppCompatActivity() {
         phoneFocusListener()
         alamatFocusListener()
 
-        val radioButton1 = findViewById<RadioButton>(R.id.rbLaki)
-        val radioButton2 = findViewById<RadioButton>(R.id.rbPerempuan)
+        radioGrup.setOnCheckedChangeListener { radioGroup, i ->
+            var rb = findViewById<RadioButton>(i)
+            if (rb!=null){
+
+            }
+        }
+
+        btnSubmit = findViewById(R.id.btnSubmit)
     }
 
     private fun namaFocusListener() {
