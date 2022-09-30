@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         namaFocusListener()
         phoneFocusListener()
+        alamatFocusListener()
     }
 
     private fun namaFocusListener() {
@@ -30,6 +31,25 @@ class MainActivity : AppCompatActivity() {
         {
             return "Harus alphabet!"
         }
+        return null
+    }
+
+    private fun alamatFocusListener() {
+        binding.inputAlamat.setOnFocusChangeListener{_, focused ->
+            if (!focused)
+            {
+                binding.containerAlamat.helperText = validAlamat()
+            }
+        }
+    }
+
+    private fun validAlamat(): String? {
+        val alamatText = binding.inputNama.text.toString()
+        if (alamatText.matches(".*[0-9].*".toRegex()))
+        {
+            return "Harus alphabet!"
+        }
+        return null
     }
 
     private fun phoneFocusListener() {
@@ -51,5 +71,6 @@ class MainActivity : AppCompatActivity() {
         {
             return "Harus angka!"
         }
+        return null
     }
 }
