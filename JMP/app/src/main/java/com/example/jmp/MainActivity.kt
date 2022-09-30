@@ -43,8 +43,7 @@ class MainActivity : AppCompatActivity() {
             val jenisKelamin = radioGrup.checkedRadioButtonId
             val gender = findViewById<RadioButton>(jenisKelamin)
 
-            startActivity(Intent(this, ResultActivity::class.java)
-                .putExtra("nama",nama.text.toString()))
+            if (etvNama)
         }
     }
 
