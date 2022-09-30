@@ -40,7 +40,7 @@
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:textColor="@color/black"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/containerAlamat">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -58,7 +58,7 @@
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:textColor="@color/black"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/containerNomor">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -114,6 +114,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lokasi Pendaftaran"/>
+
+    <Button
+        android:id="@+id/btnLocation"
+        android:text="Cek Lokasi"
+        android:textAllCaps="false"
+        android:layout_marginTop="15dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"/>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
