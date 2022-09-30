@@ -14,6 +14,16 @@ class MainActivity : AppCompatActivity() {
         namaFocusListener()
         phoneFocusListener()
         alamatFocusListener()
+
+        binding.btnSubmit.setOnClickListener{ submitForm()}
+    }
+
+    private fun submitForm() {
+        val validNama = binding.containerNama.helperText == null
+        val validAlamat = binding.containerAlamat.helperText == null
+        val validNomor = binding.containerNomor.helperText == null
+
+        if ()
     }
 
     private fun namaFocusListener() {
