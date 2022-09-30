@@ -36,14 +36,28 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         var cv = ContentValues()
         cv.put(COL_NAME,user.nama)
         cv.put(COL_ALAMAT,user.alamat)
-        cv.put(COL_ALAMAT,user.nomor)
-        cv.put(COL_ALAMAT,user.lokasi)
-        cv.put(COL_ALAMAT,user.foto)
         var result = db.insert(TABLE_NAME,null,cv)
         if(result == -1.toLong())
             Toast.makeText(context,"Gagal Menambah Data",Toast.LENGTH_SHORT).show()
         else
             Toast.makeText(context,"Berhasil Menambah Data",Toast.LENGTH_SHORT).show()
+    }
+
+    fun readData() : MutableList<User>{
+        var list : MutableList<User> = ArrayList()
+
+        val db = this.readableDatabase
+        val query = "Select * FROM" + TABLE_NAME
+        val result = db.rawQuery(query, null)
+        if (result.moveToFirst()){
+            do {
+
+            }while (result)
+        }
+
+        result.close()
+        db.close()
+        return list
     }
 
 }

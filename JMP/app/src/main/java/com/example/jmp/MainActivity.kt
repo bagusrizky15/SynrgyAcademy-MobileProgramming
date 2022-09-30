@@ -8,15 +8,14 @@ import com.example.jmp.databinding.ActivityMainBinding
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
+
+    //deklarasi variabel
     private lateinit var btnSubmit : Button
     private lateinit var btnShow: Button
     private lateinit var binding : ActivityMainBinding
-
     private lateinit var nama: TextView
     private lateinit var alamat: TextView
     private lateinit var nomor: TextView
-    private lateinit var lokasi: TextView
-    private lateinit var upload: ImageView
     private lateinit var radioGrup: RadioGroup
 
     override fun onCreate(savedInstanceState: Bundle?)
@@ -24,26 +23,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding =  ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        //validasi
         namaFocusListener()
         phoneFocusListener()
         alamatFocusListener()
-
         val context = this
 
         nama = findViewById(R.id.inputNama)
         alamat = findViewById(R.id.inputAlamat)
         nomor = findViewById(R.id.inputNomor)
-        lokasi = findViewById(R.id.tvLokasi)
-        upload = findViewById(R.id.inputNama)
         radioGrup = findViewById(R.id.radioGrup)
-
         btnSubmit = findViewById(R.id.btnSubmit)
         btnShow = findViewById(R.id.btnShow)
         btnSubmit.setOnClickListener{
             val jenisKelamin = radioGrup.checkedRadioButtonId
             val gender = findViewById<RadioButton>(jenisKelamin)
 
-            if (etvNama)
+            if (nama.text.toString().length>0 &&
+                    alamat.text.toString().length>0){
+                var user = User(nama.text.toString(),alamat.text.toString())
+                var db = DataBaseHandler(context)
+                db.insertData(user)
+            }
         }
     }
 
