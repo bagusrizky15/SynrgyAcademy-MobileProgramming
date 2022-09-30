@@ -117,7 +117,7 @@
         android:id="@+id/tvResult"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:text="200000"
+        android:text="0"
         android:textAlignment="center"
         android:textSize="55dp"
         app:layout_constraintBottom_toBottomOf="parent"
