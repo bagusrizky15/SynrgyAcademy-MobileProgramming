@@ -20,14 +20,12 @@ class MainActivity : AppCompatActivity() {
         phoneFocusListener()
         alamatFocusListener()
 
-        radioGrup.setOnCheckedChangeListener { radioGroup, i ->
-            var rb = findViewById<RadioButton>(i)
-            if (rb!=null){
-
-            }
-        }
-
         btnSubmit = findViewById(R.id.btnSubmit)
+        btnSubmit.setOnClickListener{
+            val jenisKelamin = radioGrup.checkedRadioButtonId
+            val gender = findViewById<RadioButton>(jenisKelamin)
+            
+        }
     }
 
     private fun namaFocusListener() {

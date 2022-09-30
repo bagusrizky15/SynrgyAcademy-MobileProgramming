@@ -80,12 +80,13 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Foto :"/>
-        <TextView
+        <ImageView
             android:id="@+id/outputFoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
