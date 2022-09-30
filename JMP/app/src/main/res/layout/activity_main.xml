@@ -72,19 +72,48 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_marginTop="20dp"
             android:id="@+id/jenisKelamin"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Jenis Kelamin"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginRight="30dp"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbLaki"
+                android:text="Laki-laki"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <RadioButton
+                android:id="@+id/rbPerempuan"
+                android:text="Perempuan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </RadioGroup>
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lokasi Pendaftaran"/>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
