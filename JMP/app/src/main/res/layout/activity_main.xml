@@ -167,6 +167,14 @@
         android:layout_width="320dp"
         android:layout_height="50dp"/>
 
+    <Button
+        android:id="@+id/btnShow"
+        android:text="Show"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"/>
+
 
 
 

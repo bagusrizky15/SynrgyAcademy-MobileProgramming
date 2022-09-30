@@ -9,6 +9,7 @@ import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
     private lateinit var btnSubmit : Button
+    private lateinit var btnShow: Button
     private lateinit var binding : ActivityMainBinding
 
     private lateinit var nama: TextView
@@ -27,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         phoneFocusListener()
         alamatFocusListener()
 
+        val context = this
+
         nama = findViewById(R.id.inputNama)
         alamat = findViewById(R.id.inputAlamat)
         nomor = findViewById(R.id.inputNomor)
@@ -35,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         radioGrup = findViewById(R.id.radioGrup)
 
         btnSubmit = findViewById(R.id.btnSubmit)
+        btnShow = findViewById(R.id.btnShow)
         btnSubmit.setOnClickListener{
             val jenisKelamin = radioGrup.checkedRadioButtonId
             val gender = findViewById<RadioButton>(jenisKelamin)
@@ -44,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //validasi nama
     private fun namaFocusListener() {
         binding.inputNama.setOnFocusChangeListener{_, focused ->
             if (!focused)
@@ -52,7 +57,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
     private fun validNama(): String? {
         val namaText = binding.inputNama.text.toString()
         if (namaText.matches(".*[0-9].*".toRegex()))
@@ -66,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         return null
     }
 
+    //validasi alamat
     private fun alamatFocusListener() {
         binding.inputAlamat.setOnFocusChangeListener{_, focused ->
             if (!focused)
@@ -75,7 +80,6 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-
     private fun validAlamat(): String? {
         val alamatText = binding.inputNama.text.toString()
         if (alamatText.matches(".*[0-9].*".toRegex()))
@@ -89,6 +93,7 @@ class MainActivity : AppCompatActivity() {
         return null
     }
 
+    //validasi nomor
     private fun phoneFocusListener() {
         binding.inputNomor.setOnFocusChangeListener{_, focused ->
             if (!focused)
@@ -97,7 +102,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
     private fun validPhone(): String? {
         val phoneText = binding.inputNomor.text.toString()
         if (phoneText.length < 10)
