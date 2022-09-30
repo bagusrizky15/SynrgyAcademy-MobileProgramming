@@ -132,7 +132,7 @@
         android:text="Cek Lokasi"
         android:textAllCaps="false"
         android:layout_marginTop="15dp"
-        android:layout_width="320dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"/>
 
     <TextView
@@ -163,7 +163,7 @@
         android:id="@+id/btnSubmit"
         android:text="Submit"
         android:textAllCaps="false"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_width="320dp"
         android:layout_height="50dp"/>
 
@@ -171,7 +171,6 @@
         android:id="@+id/btnShow"
         android:text="Show"
         android:textAllCaps="false"
-        android:layout_marginTop="10dp"
         android:layout_width="320dp"
         android:layout_height="50dp"/>
 
