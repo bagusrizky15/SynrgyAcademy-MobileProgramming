@@ -2,16 +2,14 @@ package com.example.simplecalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.RadioGroup
-import android.widget.Switch
-import android.widget.TextView
+import android.widget.*
+import androidx.appcompat.widget.SwitchCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var costService: TextView
     private lateinit var rb: RadioGroup
-    private lateinit var tip: Switch
+    private lateinit var tip: SwitchCompat
     private lateinit var totalResult: TextView
     private lateinit var buttonCalculate: Button
 
@@ -25,9 +23,15 @@ class MainActivity : AppCompatActivity() {
         totalResult = findViewById(R.id.tvResult)
         buttonCalculate = findViewById(R.id.calculate_button)
 
+
         buttonCalculate.setOnClickListener{
             val selectedRadioButton: Int = rb.checkedRadioButtonId
-            
+            if (selectedRadioButton != -1)
+            {
+                Toast.makeText(applicationContext, "Dipilih", Toast.LENGTH_SHORT).show()
+            }else {
+                Toast.makeText(applicationContext, "Tidak dipilih", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
