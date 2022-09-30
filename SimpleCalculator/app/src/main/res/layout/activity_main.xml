@@ -52,30 +52,30 @@
 
     <RadioGroup
         android:layout_marginTop="@dimen/sm_margin"
-        android:id="@+id/tip_options"
+        android:id="@+id/radioGroup"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:checkedButton="@id/option_twenty_percent"
+        android:checkedButton="@id/rbAmazing"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="@+id/service_question"
         app:layout_constraintTop_toBottomOf="@id/service_question">
 
         <RadioButton
-            android:id="@+id/option_twenty_percent"
+            android:id="@+id/rbAmazing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layoutDirection="rtl"
             android:text="@string/amazing_service" />
 
         <RadioButton
-            android:id="@+id/option_eighteen_percent"
+            android:id="@+id/rbGood"
             android:layout_width="match_parent"
             android:layoutDirection="rtl"
             android:layout_height="wrap_content"
             android:text="@string/good_service" />
 
         <RadioButton
-            android:id="@+id/option_fifteen_percent"
+            android:id="@+id/rbOkay"
             android:layoutDirection="rtl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/service_question"
-        app:layout_constraintTop_toBottomOf="@id/tip_options" />
+        app:layout_constraintTop_toBottomOf="@id/radioGroup" />
 
     <Button
         android:layout_marginTop="@dimen/xl_margin"
