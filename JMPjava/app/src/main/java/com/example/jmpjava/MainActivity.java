@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
     DBHandler dbHandler;
 
-    TextView namaUser, alamatUser, nomorUser, genderUser, lokasiUser, gambarUser;
-    Button getSubmit;
+    TextView namaUser, alamatUser, nomorUser;
+    Button getSubmit, getShow;
 
     RadioButton rbL,rbP;
     RadioGroup rGrup;
@@ -80,27 +80,33 @@ public class MainActivity extends AppCompatActivity {
                 String name = namaUser.getText().toString();
                 String address = alamatUser.getText().toString();
                 String phone = nomorUser.getText().toString();
-                String gender = genderUser.getText().toString();
                 String locate = lokasi.getText().toString();
                 String locate2 = lokasiAlamat.getText().toString();
 
                 boolean check = validateinfo(name,address,phone);
 
                 if (check==true){
-                    Intent intent = new Intent(MainActivity.this, ShowActivity.class);
-                    startActivity(intent);
+                    dbHandler.addNewData(name, address, phone, locate, locate2);
+                    Toast.makeText(MainActivity.this, "Data berhasil ditambah", Toast.LENGTH_SHORT).show();
+                    namaUser.setText("");
+                    alamatUser.setText("");
+                    nomorUser.setText("");
+                    lokasiAlamat.setText("");
+
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "Isi semua data", Toast.LENGTH_SHORT).show();
                 }
 
-                dbHandler.addNewData(name, address, phone, gender, locate, locate2);
-                Toast.makeText(MainActivity.this, "Data berhasil ditambah", Toast.LENGTH_SHORT).show();
-                namaUser.setText("");
-                alamatUser.setText("");
-                nomorUser.setText("");
-                genderUser.setText("");
-                lokasiAlamat.setText("");
+
+            }
+        });
+
+        getShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ShowActivity.class);
+                startActivity(i);
             }
         });
 

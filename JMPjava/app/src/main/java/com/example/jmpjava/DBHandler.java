@@ -2,8 +2,11 @@ package com.example.jmpjava;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper {
     // creating a constant variables for our database.
@@ -55,8 +58,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + ALAMAT_COL + " TEXT,"
                 + NOMOR_COL + " TEXT,"
                 + LOKASI_COL + " TEXT,"
-                + GAMBAR_COL + " TEXT,"
-                + GENDER_COL + " TEXT)";
+                + GAMBAR_COL + " TEXT)";
 
         // at last we are calling a exec sql
         // method to execute above sql query
@@ -64,7 +66,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     // this method is use to add new course to our sqlite database.
-    public void addNewData(String namaUser, String alamatUser, String nomorUser, String genderUser, String lokasiUser, String gambarUser) {
+    public void addNewData(String namaUser, String alamatUser, String nomorUser, String lokasiUser, String gambarUser) {
 
         // on below line we are creating a variable for
         // our sqlite database and calling writable method
@@ -80,7 +82,6 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(NAMA_COL, namaUser);
         values.put(ALAMAT_COL, alamatUser);
         values.put(NOMOR_COL, nomorUser);
-        values.put(GENDER_COL, genderUser);
         values.put(LOKASI_COL, lokasiUser);
         values.put(GAMBAR_COL, gambarUser);
 
@@ -93,12 +94,42 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    // we have created a new method for reading all the courses.
+    public ArrayList<Modal> readCourses() {
+        // on below line we are creating a
+        // database for reading our database.
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // on below line we are creating a cursor with query to read data from database.
+        Cursor cursorData = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        // on below line we are creating a new array list.
+        ArrayList<Modal> courseModalArrayList = new ArrayList<>();
+
+        // moving our cursor to first position.
+        if (cursorData.moveToFirst()) {
+            do {
+                // on below line we are adding the data from cursor to our array list.
+                courseModalArrayList.add(new Modal(cursorData.getString(1),
+                        cursorData.getString(4),
+                        cursorData.getString(2),
+                        cursorData.getString(3)));
+            } while (cursorData.moveToNext());
+            // moving our cursor to next.
+        }
+        // at last closing our cursor
+        // and returning our array list.
+        cursorData.close();
+        return courseModalArrayList;
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // this method is called to check if the table exists already.
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
+
 
 
 }
