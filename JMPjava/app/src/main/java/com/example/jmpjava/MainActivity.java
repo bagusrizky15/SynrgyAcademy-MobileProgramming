@@ -14,6 +14,8 @@ import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,18 +28,27 @@ import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+    int lok = 0;
     FusedLocationProviderClient fusedLocationProviderClient;
     TextView lokasi, lokasiAlamat;
     Button getLocation;
 
     TextView namaUser, alamatUser, nomorUser;
     Button getSubmit;
+
+    RadioButton rbL,rbP;
+    RadioGroup rGrup;
     private final static int REQUEST_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        rbL = findViewById(R.id.rbLaki);
+        rbP = findViewById(R.id.rbPerempuan);
+        rGrup = findViewById(R.id.radioGrup);
 
         namaUser = findViewById(R.id.inputNama);
         alamatUser = findViewById(R.id.inputAlamat);
@@ -58,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "Sorry repeat again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Isi semua data", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -76,38 +87,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private Boolean validateinfo(String name, String address, String phone) {
-        if (name.length()==0){
-            namaUser.requestFocus();
-            namaUser.setError("Nama tidak boleh kosong");
-            return false;
-        }
-        else if (!name.matches("[a-zA-Z]+"))
-        {
-            namaUser.setError("Nama harus Alphabet");
-        }
-        else if (!address.matches("[a-zA-Z]+"))
-        {
-            alamatUser.setError("Nama harus Alphabet");
-        }
-        else if (address.length()==0){
-            alamatUser.requestFocus();
-            alamatUser.setError("Alamat tidak boleh kosong");
-        }
-        else if (phone.length()==0){
-            nomorUser.requestFocus();
-            nomorUser.setError("Nomor hp tidak boleh kosong");
-        }
-        else if (!phone.matches("[0-9]{10,13}$")){
-            nomorUser.requestFocus();
-            nomorUser.setError("Format yang benar 08xxxxxx");
-        }
-        else {
-            return true;
-        }
-    }
-
-
     //get location gmaps
     private void getLastLocation() {
 
@@ -122,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                                     List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(),1);
                                     lokasi.setText("Address: "+addresses.get(0).getAddressLine(0));
                                     lokasiAlamat.setText("City: "+addresses.get(0).getLocality());
+                                    lok ++;
                                 } catch (IOException e){
                                     e.printStackTrace();
                                 }
@@ -136,6 +116,54 @@ public class MainActivity extends AppCompatActivity {
 
     private void askPermission() {
         ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_CODE);
+    }
+
+    private Boolean validateinfo(String name, String address, String phone) {
+        if (name.length()==0){
+            namaUser.requestFocus();
+            namaUser.setError("Nama tidak boleh kosong");
+            return false;
+        }
+        else if (!name.matches("[a-zA-Z]+"))
+        {
+            namaUser.requestFocus();
+            namaUser.setError("Nama harus Alphabet");
+            return false;
+        }
+        else if (address.length()==0){
+            alamatUser.requestFocus();
+            alamatUser.setError("Alamat tidak boleh kosong");
+            return false;
+        }
+        else if (!address.matches("[a-zA-Z]+"))
+        {
+            alamatUser.requestFocus();
+            alamatUser.setError("Alamat harus Alphabet");
+            return false;
+        }
+        else if (phone.length()==0){
+            nomorUser.requestFocus();
+            nomorUser.setError("Nomor hp tidak boleh kosong");
+            return false;
+        }
+        else if (!phone.matches("[0-9]{10,13}$")){
+            nomorUser.requestFocus();
+            nomorUser.setError("Format yang benar 08xxxxxx");
+            return false;
+        }
+        else if (!rbL.isChecked() && !rbP.isChecked()){
+            rGrup.requestFocus();
+            Toast.makeText(getApplicationContext(), "Pilih gender", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (!(lok ==0)){
+            getLocation.requestFocus();
+            Toast.makeText(getApplicationContext(), "Cek Lokasi dulu", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     @Override
