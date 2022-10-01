@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (!phone.matches("[0-9]{10,13}$")){
             nomorUser.requestFocus();
-            nomorUser.setError("Nomor hp tidak boleh kosong");
+            nomorUser.setError("Format yang benar 08xxxxxx");
         }
         else {
             return true;
