@@ -36,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
     TextView lokasi, lokasiAlamat;
     Button getLocation;
 
-    TextView namaUser, alamatUser, nomorUser;
+    DBHandler dbHandler;
+
+    TextView namaUser, alamatUser, nomorUser, genderUser, lokasiUser, gambarUser;
     Button getSubmit;
 
     RadioButton rbL,rbP;
@@ -52,30 +54,13 @@ public class MainActivity extends AppCompatActivity {
         rbL = findViewById(R.id.rbLaki);
         rbP = findViewById(R.id.rbPerempuan);
         rGrup = findViewById(R.id.radioGrup);
-
+        //gambarUser = findViewById(R.id.btnUpload)
         namaUser = findViewById(R.id.inputNama);
         alamatUser = findViewById(R.id.inputAlamat);
         nomorUser = findViewById(R.id.inputNomor);
         getSubmit = findViewById(R.id.btnSubmit);
 
-        getSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = namaUser.getText().toString();
-                String address = alamatUser.getText().toString();
-                String phone = nomorUser.getText().toString();
-                
-                boolean check = validateinfo(name,address,phone);
-
-                if (check==true){
-                    Intent intent = new Intent(MainActivity.this, ShowActivity.class);
-                    startActivity(intent);
-                }
-                else {
-                    Toast.makeText(getApplicationContext(), "Isi semua data", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        dbHandler = new DBHandler(MainActivity.this);
 
         lokasi = findViewById(R.id.tvLokasi);
         lokasiAlamat = findViewById(R.id.tvLokasiAlamat);
@@ -88,6 +73,37 @@ public class MainActivity extends AppCompatActivity {
                 getLastLocation();
             }
         });
+
+        getSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = namaUser.getText().toString();
+                String address = alamatUser.getText().toString();
+                String phone = nomorUser.getText().toString();
+                String gender = genderUser.getText().toString();
+                String locate = lokasi.getText().toString();
+                String locate2 = lokasiAlamat.getText().toString();
+
+                boolean check = validateinfo(name,address,phone);
+
+                if (check==true){
+                    Intent intent = new Intent(MainActivity.this, ShowActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Isi semua data", Toast.LENGTH_SHORT).show();
+                }
+
+                dbHandler.addNewData(name, address, phone, gender, locate, locate2);
+                Toast.makeText(MainActivity.this, "Data berhasil ditambah", Toast.LENGTH_SHORT).show();
+                namaUser.setText("");
+                alamatUser.setText("");
+                nomorUser.setText("");
+                genderUser.setText("");
+                lokasiAlamat.setText("");
+            }
+        });
+
     }
 
     //get location gmaps
