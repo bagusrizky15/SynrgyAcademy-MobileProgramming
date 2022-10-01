@@ -5,11 +5,11 @@ class User {
     var id: Int=0
     var nama: String = ""
     var alamat: String=""
-//    var nomor: String=""
+    var nomor: String=""
 //    var lokasi: String=""
 //    var foto: String=""
 
-    constructor(nama:String, alamat:String){
+    constructor(nama:String, alamat:String, nomor:String){
         this.nama = nama
         this.alamat =alamat
 //        this.nomor=nomor

@@ -2,6 +2,7 @@ package com.example.jmp
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
@@ -24,6 +25,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
                 COL_LOKASI + " VARCHAR(256)," +
                 COL_FOTO + " VARCHAR(256)," +
                 COL_NOMOR +" INTEGER)"
+
         db?.execSQL(createTable)
     }
 
@@ -36,11 +38,17 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         var cv = ContentValues()
         cv.put(COL_NAME,user.nama)
         cv.put(COL_ALAMAT,user.alamat)
+        cv.put(COL_NOMOR,user.nomor)
         var result = db.insert(TABLE_NAME,null,cv)
         if(result == -1.toLong())
             Toast.makeText(context,"Gagal Menambah Data",Toast.LENGTH_SHORT).show()
         else
             Toast.makeText(context,"Berhasil Menambah Data",Toast.LENGTH_SHORT).show()
+    }
+
+    fun getData(): Cursor? {
+        val db = this.readableDatabase
+        return db.rawQuery("SELECT * FROM" + TABLE_NAME, null)
     }
 
 //    fun readData() : MutableList<User>{

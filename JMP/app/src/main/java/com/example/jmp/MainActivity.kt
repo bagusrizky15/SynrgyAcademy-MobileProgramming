@@ -52,24 +52,35 @@ class MainActivity : AppCompatActivity() {
         alamatFocusListener()
         val context = this
 
-        nama = findViewById(R.id.inputNama)
-        alamat = findViewById(R.id.inputAlamat)
-        nomor = findViewById(R.id.inputNomor)
-        radioGrup = findViewById(R.id.radioGrup)
-        btnSubmit = findViewById(R.id.btnSubmit)
-        btnShow = findViewById(R.id.btnShow)
+        nama = findViewById(R.id.inputNama) as EditText
+        alamat = findViewById(R.id.inputAlamat) as EditText
+        nomor = findViewById(R.id.inputNomor) as EditText
+        radioGrup = findViewById(R.id.radioGrup) as RadioGroup
+        btnSubmit = findViewById(R.id.btnSubmit) as Button
+        btnShow = findViewById(R.id.btnShow) as Button
+
         btnSubmit.setOnClickListener{
             val jenisKelamin = radioGrup.checkedRadioButtonId
             val gender = findViewById<RadioButton>(jenisKelamin)
 
             if (nama.text.toString().length>0 &&
-                    alamat.text.toString().length>0){
-                var user = User(nama.text.toString(),alamat.text.toString())
+                alamat.text.toString().length>0 &&
+                nomor.text.toString().length>0 ){
+                var user = User(nama.text.toString(),alamat.text.toString(),nomor.text.toString())
                 var db = DataBaseHandler(context)
                 db.insertData(user)
             }
+
+        }
+
+        btnShow.setOnClickListener{
+
+            val intent = Intent(this, ResultActivity::class.java).also {
+                startActivity(intent)
+            }
         }
     }
+
 
     //cek lokasi
     private fun isLocationEnabled(): Boolean {
@@ -132,6 +143,7 @@ class MainActivity : AppCompatActivity() {
                             geocoder.getFromLocation(location.latitude, location.longitude, 1)
                         binding.apply {
                             tvLokasi.text = "Locality\n${list[0].locality}"
+                            tvLokasiAlamat.text = "Address\n${list[0].getAddressLine(0)}"
                         }
                     }
                 }

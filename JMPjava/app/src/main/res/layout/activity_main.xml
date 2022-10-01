@@ -23,8 +23,6 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:layout_marginTop="20dp"
-        app:helperText="Required"
-        app:helperTextTextColor="@android:color/holo_red_dark"
         android:id="@+id/containerNama">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -42,8 +40,6 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        app:helperText="Required"
-        app:helperTextTextColor="@android:color/holo_red_dark"
         android:textColor="@color/black"
         android:layout_marginTop="15dp"
         android:id="@+id/containerAlamat">
@@ -64,8 +60,6 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        app:helperText="Required"
-        app:helperTextTextColor="@android:color/holo_red_dark"
         android:layout_marginTop="15dp"
         android:id="@+id/containerNomor">
 
@@ -156,7 +150,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Upload Foto Identitas"/>
-    
+
     <Button
         android:id="@+id/btnUpload"
         android:text="Upload"
@@ -164,7 +158,7 @@
         android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    
+
     <Button
         android:id="@+id/btnSubmit"
         android:text="Submit"
