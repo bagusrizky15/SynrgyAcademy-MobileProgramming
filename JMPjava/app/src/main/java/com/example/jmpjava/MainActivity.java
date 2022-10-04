@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         alamatUser = findViewById(R.id.inputAlamat);
         nomorUser = findViewById(R.id.inputNomor);
         getSubmit = findViewById(R.id.btnSubmit);
+        getShow = findViewById(R.id.btnShow);
 
         dbHandler = new DBHandler(MainActivity.this);
 
