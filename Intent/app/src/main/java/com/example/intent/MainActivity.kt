@@ -13,14 +13,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun klikButton(){
+
+        btnUpload.setOnClickListener(){
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, IMAGE_REQUEST_CODE)
+        }
+
         btnKlik.setOnClickListener(){
             val name = namaEt.text.toString()
             val intent = Intent(this, MainActivity2::class.java).also {
                 it.putExtra("EXTRA_NAME", name)
                 startActivity(it)
             }
+    }
 
     }
 
+    private fun startActivityForResult(requestCode: Int, resultCode:Int, data:Intent) {
+        
+    }
+
+    companion object {
+        val IMAGE_REQUEST_CODE = 100
     }
 }
