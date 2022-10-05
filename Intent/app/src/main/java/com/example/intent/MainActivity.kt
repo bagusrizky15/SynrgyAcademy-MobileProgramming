@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startActivityForResult(requestCode: Int, resultCode:Int, data:Intent) {
-        
+
     }
 
     companion object {
