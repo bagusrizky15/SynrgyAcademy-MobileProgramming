@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     fun klikButton(){
         btnKlik.setOnClickListener(){
             val Intent = Intent(this, MainActivity2::class.java)
+            Intent.putExtra("name", "Joko")
             startActivity(Intent)
     }
 
