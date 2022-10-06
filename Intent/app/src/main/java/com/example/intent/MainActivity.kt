@@ -3,7 +3,7 @@ package com.example.intent
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,25 +14,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun klikButton(){
-
-        btnUpload.setOnClickListener(){
-            val intent = packageManager.getLaunchIntentForPackage("com.google.android.youtube")
-            if (intent !=null){
-                startActivity(intent)
-            }else{
-                Toast.makeText(this, "aplikasi tidak ada", Toast.LENGTH_SHORT).show()
-            }
-        }
-
         btnKlik.setOnClickListener(){
-            val name = namaEt.text.toString()
-            val intent = Intent(this, MainActivity2::class.java).also {
-                it.putExtra("EXTRA_NAME", name)
+            val iniPesan = namaEt.text.toString()
+            val bundle = Bundle()
+            bundle.putString("NAMA", iniPesan)
+            Log.e("CEK", iniPesan)
+            val i = Intent(this, MainActivity2::class.java).also {
+                intent.putExtras(bundle)
                 startActivity(it)
             }
+        }
     }
-
-    }
-
-
 }
