@@ -17,10 +17,11 @@ class MainActivity : AppCompatActivity() {
         btnKlik.setOnClickListener(){
             val iniPesan = namaEt.text.toString()
             val bundle = Bundle()
-            bundle.putString("NAMA", iniPesan)
+            val message = Pesan(iniPesan)
+            bundle.putSerializable("key", message)
             Log.e("CEK", iniPesan)
-            val i = Intent(this, MainActivity2::class.java).also {
-                intent.putExtras(bundle)
+            Intent(this, MainActivity2::class.java).also {
+                it.putExtras(bundle)
                 startActivity(it)
             }
         }

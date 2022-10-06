@@ -12,13 +12,13 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
 
         val Bundle = intent.extras
-        val iniPesan = Bundle?.getString("NAMA")
-        namaEt.setText(iniPesan)
+        val iniPesan = Bundle?.getSerializable("key") as Pesan
+        namaEt.setText(iniPesan.pesan)
         Log.e("CEK2", iniPesan.toString())
         btnShare.setOnClickListener(){
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                intent.getStringExtra("EXTRA_PESAN")
+                intent.getStringExtra("key")
                 type = "text/plain"
             }
 
