@@ -20,7 +20,7 @@ class MainFragment : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_dua -> {
-                    setupFragment(Fragment1())
+                    setupFragment(Fragment2())
                     true
                 }
                 else -> throw Exception("Error")
@@ -30,7 +30,13 @@ class MainFragment : AppCompatActivity() {
 
     private fun setupFragment(fragment1: Fragment1) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment1, fragment1)
+        transaction.replace(R.id.iniFragment, fragment1)
+        transaction.commit()
+    }
+
+    private fun setupFragment(fragment2: Fragment2) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.iniFragment, fragment2)
         transaction.commit()
     }
 }

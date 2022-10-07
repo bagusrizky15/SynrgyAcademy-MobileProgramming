@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment1">
+    tools:context=".Fragment2">
 
     <TextView
         android:gravity="center"
@@ -11,6 +11,6 @@
         android:id="@+id/tvFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Ini adalah fragment 1" />
+        android:text="Ini adalah fragment 2" />
 
 </FrameLayout>
