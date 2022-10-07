@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_satu"
-        android:icon="@android:drawable/ic_menu_call"
+        android:icon="@drawable/ic_phone_outline"
         android:title="Satu" />
 
     <item
