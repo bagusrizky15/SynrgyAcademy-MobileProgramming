@@ -2,6 +2,7 @@ package com.example.intent
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main_fragment.*
 
 class MainFragment : AppCompatActivity() {
@@ -28,15 +29,10 @@ class MainFragment : AppCompatActivity() {
         }
     }
 
-    private fun setupFragment(fragment1: Fragment1) {
+    private fun setupFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.iniFragment, fragment1)
+        transaction.replace(R.id.iniFragment, fragment)
         transaction.commit()
     }
 
-    private fun setupFragment(fragment2: Fragment2) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.iniFragment, fragment2)
-        transaction.commit()
-    }
 }
