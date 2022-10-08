@@ -15,8 +15,21 @@ class MainActivity : AppCompatActivity() {
            Intent(this, MainActivity::class.java).also {
                sendData()
                getData()
+               totalResult()
                startActivity(intent)
            }
+        }
+
+        radioGroup.
+    }
+
+    private fun totalResult() {
+        if (etCost.text.isEmpty())
+        {
+            tvResult.text = "0"
+            return
+        } else {
+
         }
     }
 
@@ -26,17 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getData() {
-        var iniData = intent.getStringExtra("input")
-        if (rbAmazing.isSelected)
-        {
-            iniData += iniData*0.2
-        } else if (rbGood.isSelected)
-        {
-            iniData+= iniData*0.18
-        } else
-        {
-            iniData+= iniData*0.15
-        }
+        val iniData = intent.getStringExtra("input")
         tvResult.setText(iniData)
     }
 }
