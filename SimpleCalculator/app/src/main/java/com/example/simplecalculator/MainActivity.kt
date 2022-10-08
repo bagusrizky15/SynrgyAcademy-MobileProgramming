@@ -3,6 +3,7 @@ package com.example.simplecalculator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,21 +16,8 @@ class MainActivity : AppCompatActivity() {
            Intent(this, MainActivity::class.java).also {
                sendData()
                getData()
-               totalResult()
                startActivity(intent)
            }
-        }
-
-        radioGroup.
-    }
-
-    private fun totalResult() {
-        if (etCost.text.isEmpty())
-        {
-            tvResult.text = "0"
-            return
-        } else {
-
         }
     }
 
@@ -39,7 +27,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getData() {
-        val iniData = intent.getStringExtra("input")
+        var iniData = intent.getStringExtra("input")
+        if (rbAmazing.isSelected){
+            var total=iniData+100
+            Log.e("CEK", total)
+
+        }
         tvResult.setText(iniData)
     }
 }
