@@ -20,15 +20,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun getData() {
-        val iniData = intent.getStringExtra("input")
-        tvResult.setText(iniData)
-
-    }
-
     private fun sendData() {
         val iniData = etCost.text.toString()
         intent.putExtra("input", iniData)
+    }
+
+    private fun getData() {
+        var iniData = intent.getStringExtra("input")
+        if (rbAmazing.isSelected)
+        {
+            iniData += iniData*0.2
+        } else if (rbGood.isSelected)
+        {
+            iniData+= iniData*0.18
+        } else
+        {
+            iniData+= iniData*0.15
+        }
+        tvResult.setText(iniData)
     }
 }
 
