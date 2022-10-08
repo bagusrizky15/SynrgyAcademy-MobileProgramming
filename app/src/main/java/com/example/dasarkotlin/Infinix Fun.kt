@@ -1,7 +1,7 @@
 infix fun String.to(type: String): String {
     if(type=="besar")
     {
-        return this.toUppaerCase()
+        return this.toUpperCase()
     }else {
         return this.toLowerCase()
     }
