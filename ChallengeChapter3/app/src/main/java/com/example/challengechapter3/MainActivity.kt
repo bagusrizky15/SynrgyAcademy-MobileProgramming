@@ -21,10 +21,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showList() {
-        for (i in 'A'..'Z')
+        val itmarray = arrayListOf<String>('A'.toString(), 'B'.toString())
+        for (i in 1..itmarray.size)
         {
-            itemsList.add("$i")
+            itemsList.add(itmarray.size[i])
         }
+        adapterList.notifyDataSetChanged()
     }
 
 
