@@ -10,4 +10,15 @@
         android:name="com.example.navigationcomponent.SendFragment"
         android:label="fragment_send"
         tools:layout="@layout/fragment_send" />
+    <fragment
+        android:id="@+id/receiveFragment"
+        android:name="com.example.navigationcomponent.ReceiveFragment"
+        android:label="fragment_receive"
+        tools:layout="@layout/fragment_receive" >
+        <argument
+            android:name="teks"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="Teks Kosong" />
+    </fragment>
 </navigation>
