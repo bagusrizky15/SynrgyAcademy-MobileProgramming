@@ -8,25 +8,26 @@ import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import com.example.challengechapter3.AdapterList.MyViewHolder
 
-internal class AdapterList(private var itemsList: List<String>) :
-        RecyclerView.Adapter<MyViewHolder>() {
-            internal inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view){
-                var itemTextView: TextView = view.findViewById(R.id.itemTextView)
-            }
+class AdapterList(
+    var itemsList: List<String>
+    ) : RecyclerView.Adapter<MyViewHolder>() {
 
     @NonNull
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item, parent, false)
-        return MyViewHolder(itemView)
+        return MyViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val item = itemsList[position]
-        holder.itemTextView.text = item
+        holder.itemTextView.text = itemsList[position]
     }
 
     override fun getItemCount(): Int {
         return itemsList.size
+    }
+
+    class MyViewHolder(view: View) : RecyclerView.ViewHolder(view){
+        var itemTextView: TextView = view.findViewById(R.id.itemTextView)
     }
 }

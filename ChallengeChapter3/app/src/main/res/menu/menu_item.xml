@@ -6,4 +6,10 @@
         android:title="switch"
         app:showAsAction="always"
         android:icon="@drawable/ic_span_1"/>
+    <item
+        android:id="@+id/menu_switch_layout2"
+        android:title="switch"
+        app:showAsAction="always"
+        android:visible="false"
+        android:icon="@drawable/ic_span_3"/>
 </menu>
