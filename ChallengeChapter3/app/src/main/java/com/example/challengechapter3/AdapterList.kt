@@ -1,6 +1,7 @@
 package com.example.challengechapter3
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,9 @@ class AdapterList(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.itemTextView.text = itemsList[position]
+        holder.itemTextView.setOnClickListener{
+            Log.e("CEK", itemsList[position])
+        }
     }
 
     override fun getItemCount(): Int {
