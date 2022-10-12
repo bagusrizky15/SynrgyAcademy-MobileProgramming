@@ -4,22 +4,23 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Adapter
 import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private val itemsList = ArrayList<String>()
-    private lateinit var adapterList: AdapterList
+    var adapterList = AdapterList(itemsList)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        adapterList = AdapterList(itemsList)
+        findViewById<RecyclerView?>(R.id.recyclerView).adapter = adapterList
         val layoutManager = LinearLayoutManager(applicationContext)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = adapterList
 
         showList()
     }
@@ -37,10 +38,17 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
+    var default = true
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.menu_switch_layout){
-            Toast.makeText(this, "Di Klik", Toast.LENGTH_SHORT).show()
-        }
+            default=!default
+            if (default)
+            {
+                item.setIcon(R.drawable.ic_span_3)
+                recyclerView.layoutManager = LinearLayoutManager(this)
+            }else {
+                item.setIcon(R.drawable.ic_span_1)
+                recyclerView.layoutManager = GridLayoutManager(this, 3)
+            }
         return super.onOptionsItemSelected(item)
     }
 
