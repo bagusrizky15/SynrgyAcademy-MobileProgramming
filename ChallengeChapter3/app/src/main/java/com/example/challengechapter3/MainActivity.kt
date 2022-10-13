@@ -15,6 +15,12 @@ class MainActivity : AppCompatActivity(){
     var adapterList = AdapterList(itemsList,  object : AdapterList.OnAdapterListener{
         override fun onClick(item: String) {
             Toast.makeText(applicationContext, item, Toast.LENGTH_SHORT).show()
+            val bundle = Bundle()
+            val fragment = FragmentData()
+            bundle.putString("string", "hahah")
+            fragment.arguments = bundle
+            supportFragmentManager.beginTransaction().replace(R.id.textFragment, fragment)
+                .commit()
         }
 
     })
