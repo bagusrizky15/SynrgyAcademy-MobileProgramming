@@ -42,4 +42,6 @@ class AdapterList(
     interface OnAdapterListener {
         fun onClick(item: String)
     }
+
+
 }

@@ -16,11 +16,10 @@ class MainActivity : AppCompatActivity(){
         override fun onClick(item: String) {
             Toast.makeText(applicationContext, item, Toast.LENGTH_SHORT).show()
             val bundle = Bundle()
-            val fragment = FragmentData()
-            bundle.putString("string", "hahah")
+            val fragment = BlankFragment()
+            bundle.putString("data", "haha")
             fragment.arguments = bundle
-            supportFragmentManager.beginTransaction().replace(R.id.textFragment, fragment)
-                .commit()
+            supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
         }
 
     })
@@ -41,7 +40,6 @@ class MainActivity : AppCompatActivity(){
         {
             itemsList.add("$i")
         }
-        adapterList.notifyDataSetChanged()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
