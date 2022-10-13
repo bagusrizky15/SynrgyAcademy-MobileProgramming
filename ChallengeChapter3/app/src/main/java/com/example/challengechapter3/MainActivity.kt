@@ -1,20 +1,24 @@
 package com.example.challengechapter3
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Adapter
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
     private val itemsList = ArrayList<String>()
-    var adapterList = AdapterList(itemsList)
+    var adapterList = AdapterList(itemsList,  object : AdapterList.OnAdapterListener{
+        override fun onClick(item: String) {
+            Toast.makeText(applicationContext, item, Toast.LENGTH_SHORT).show()
+        }
+
+    })
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
