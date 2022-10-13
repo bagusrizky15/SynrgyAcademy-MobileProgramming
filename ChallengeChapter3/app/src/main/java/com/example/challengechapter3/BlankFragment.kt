@@ -20,6 +20,4 @@ class BlankFragment : Fragment() {
         return view
     }
 
-
-
 }

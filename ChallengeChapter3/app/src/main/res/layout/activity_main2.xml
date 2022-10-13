@@ -8,6 +8,7 @@
     android:layout_margin="10dp">
 
     <TextView
+        android:textAlignment="center"
         android:textSize="24dp"
         android:text="satu"
         android:id="@+id/tv1"
@@ -16,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
+        android:textAlignment="center"
         android:textSize="24dp"
         android:text="dua"
         android:id="@+id/tv2"
@@ -24,6 +26,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv1"/>
 
     <TextView
+        android:textAlignment="center"
         android:text="tiga"
         android:textSize="24dp"
         android:id="@+id/tv3"

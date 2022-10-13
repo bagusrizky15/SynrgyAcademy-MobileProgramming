@@ -12,27 +12,30 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(){
     private val itemsList = ArrayList<String>()
-    var adapterList = AdapterList(itemsList,  object : AdapterList.OnAdapterListener{
+    private var adapterList = AdapterList(itemsList,  object : AdapterList.OnAdapterListener{
         override fun onClick(item: String) {
             Toast.makeText(applicationContext, item, Toast.LENGTH_SHORT).show()
-            val bundle = Bundle()
             val fragment = BlankFragment()
-            bundle.putString("data", "haha")
-            fragment.arguments = bundle
             supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
         }
 
     })
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle? ) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         findViewById<RecyclerView?>(R.id.recyclerView).adapter = adapterList
         val layoutManager = LinearLayoutManager(applicationContext)
         recyclerView.layoutManager = layoutManager
-
         showList()
+
+        val bundle = Bundle()
+        val fragment = BlankFragment()
+        bundle.putString("data", "Gas")
+        fragment.arguments = bundle
+        supportFragmentManager.beginTransaction().add(R.id.tvFragment, fragment).commit()
+
     }
 
     private fun showList() {
