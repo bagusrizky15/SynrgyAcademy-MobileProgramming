@@ -1,5 +1,6 @@
 package com.example.challengechapter3
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -15,8 +16,10 @@ class MainActivity : AppCompatActivity(){
     private var adapterList = AdapterList(itemsList,  object : AdapterList.OnAdapterListener{
         override fun onClick(item: String) {
             Toast.makeText(applicationContext, item, Toast.LENGTH_SHORT).show()
-            val fragment = BlankFragment()
-            supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
+            val huruf = itemsList[item.toInt()]
+            val intent = Intent(applicationContext, MainActivity2::class.java)
+            intent.putExtra("EXTRA_HURUF" , huruf )
+            startActivity(intent)
         }
 
     })
@@ -30,18 +33,12 @@ class MainActivity : AppCompatActivity(){
         recyclerView.layoutManager = layoutManager
         showList()
 
-        val bundle = Bundle()
-        val fragment = BlankFragment()
-        bundle.putString("data", "Gas")
-        fragment.arguments = bundle
-        supportFragmentManager.beginTransaction().add(R.id.tvFragment, fragment).commit()
-
     }
 
     private fun showList() {
         for (i in 'A'..'Z')
         {
-            itemsList.add("$i")
+            itemsList.add(i.toString())
         }
     }
 
