@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class LoginFragment : Fragment(R.layout.fragment_login) {
-
+class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -17,13 +16,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
-        
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     companion object {
+
         fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
+            HomeFragment().apply {
             }
     }
 }
