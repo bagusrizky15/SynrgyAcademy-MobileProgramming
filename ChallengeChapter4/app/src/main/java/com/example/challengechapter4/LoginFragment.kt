@@ -8,8 +8,16 @@ import android.view.ViewGroup
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        initObject()
+    }
+
+    private fun initObject() {
+        sharedPreferences = SharedPreferences(this)
     }
 
     override fun onCreateView(
