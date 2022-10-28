@@ -1,7 +1,6 @@
 package com.example.challengechapter4
 
 import android.content.Context
-import android.content.Context.MODE_PRIVATE
 import androidx.core.content.edit
 
 class SharedPreferences(context: Context) {
