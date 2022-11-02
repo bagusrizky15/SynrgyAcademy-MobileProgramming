@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.challengechapter4.helper.PrefHelper
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
-    
+
     lateinit var preferences: PrefHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
