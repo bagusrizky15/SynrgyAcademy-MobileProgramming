@@ -13,11 +13,12 @@ import com.example.challengechapter4.helper.PrefHelper
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private lateinit var preferences: PrefHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         preferences = PrefHelper(requireActivity())
-
+        
     }
 
     override fun onCreateView(
