@@ -8,18 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.challengechapter4.R
+import com.example.challengechapter4.helper.PrefHelper
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
-    lateinit var preferences: SharedPreferences
+    private lateinit var preferences: PrefHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-    }
+        preferences = PrefHelper(requireActivity())
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        SharedPreferences preferences = context.get
     }
 
     override fun onCreateView(
