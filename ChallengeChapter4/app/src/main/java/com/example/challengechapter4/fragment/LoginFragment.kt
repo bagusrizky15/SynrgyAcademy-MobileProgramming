@@ -29,7 +29,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         return inflater.inflate(R.layout.fragment_login, container, false)
 
         btnLogin.setOnClickListener{
-            preferences.getBoolean(false)
+            if ()
         }
 
     }
