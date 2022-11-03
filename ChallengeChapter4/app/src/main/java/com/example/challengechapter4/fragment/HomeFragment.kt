@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.challengechapter4.R
 import com.example.challengechapter4.databinding.FragmentHomeBinding
 import com.example.challengechapter4.helper.Constant
 import com.example.challengechapter4.helper.PrefHelper
@@ -31,6 +32,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.tvHello.text = preferences.getString(Constant.PREF_IS_USERNAME)
+        binding.btnLogout.setOnClickListener {
+            preferences.clear()
+            val fragment = LoginFragment()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.fragmentContainer, fragment)?.commit()
+        }
     }
 
     companion object {
