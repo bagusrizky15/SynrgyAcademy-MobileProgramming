@@ -10,19 +10,19 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.challengechapter4.R
+import com.example.challengechapter4.databinding.FragmentHomeBinding
+import com.example.challengechapter4.databinding.FragmentLoginBinding
 import com.example.challengechapter4.helper.Constant
 import com.example.challengechapter4.helper.PrefHelper
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private lateinit var preferences: PrefHelper
-    private lateinit var btnLogin: Button
-    private lateinit var tvRegister: TextView
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         preferences = PrefHelper(requireActivity())
-
     }
 
     override fun onCreateView(
@@ -30,14 +30,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
-        var editUsername : EditText = view.findViewById(R.id.etUsername)
-        var editPassword : EditText = view.findViewById(R.id.etPassword)
-        tvRegister = view.findViewById(R.id.btnRegister)
-        btnLogin = view.findViewById(R.id.btnLogin)
-        btnLogin.setOnClickListener {
-            preferences.put(Constant.PREF_IS_USERNAME, editUsername.text.toString())
-            preferences.put(Constant.PREF_IS_PASSWORD, editPassword.text.toString())
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnLogin.setOnClickListener {
+            preferences.put(Constant.PREF_IS_USERNAME, binding.etUsername.text.toString())
+            preferences.put(Constant.PREF_IS_PASSWORD, binding.etPassword.text.toString())
             preferences.put(Constant.PREF_IS_LOGIN, true)
             Toast.makeText(context, "Berhasil Masuk", Toast.LENGTH_SHORT).show()
             val fragment = HomeFragment()
@@ -45,13 +46,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             transaction?.replace(R.id.fragmentContainer, fragment)?.commit()
         }
 
-        tvRegister.setOnClickListener {
+        binding.btnRegister.setOnClickListener {
             val fragment = RegisterFragment()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragmentContainer, fragment)?.commit()
         }
-
-        return view
     }
 
     override fun onStart() {
