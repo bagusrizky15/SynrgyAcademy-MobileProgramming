@@ -1,6 +1,6 @@
 package com.example.challengechapter4.helper
 
-class Constrant {
+class Constant {
 
     companion object {
         val PREF_IS_LOGIN = "PREF_IS_LOGIN"

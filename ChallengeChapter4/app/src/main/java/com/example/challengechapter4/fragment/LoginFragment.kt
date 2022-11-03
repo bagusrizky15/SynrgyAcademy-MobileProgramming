@@ -1,19 +1,21 @@
 package com.example.challengechapter4.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import com.example.challengechapter4.R
+import com.example.challengechapter4.helper.Constant
 import com.example.challengechapter4.helper.PrefHelper
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private lateinit var preferences: PrefHelper
     private lateinit var btnLogin: Button
+    lateinit var username: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -29,7 +31,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         return inflater.inflate(R.layout.fragment_login, container, false)
 
         btnLogin.setOnClickListener{
-            if ()
+            if (username.text.isNotEmpty()){
+                preferences.put(Constant.PREF_IS_USERNAME, username.text.toString())
+                preferences.put(Constant)
+            }
         }
 
     }
