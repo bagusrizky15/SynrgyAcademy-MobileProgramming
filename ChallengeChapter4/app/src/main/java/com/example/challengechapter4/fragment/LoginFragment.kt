@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import com.example.challengechapter4.R
 import com.example.challengechapter4.helper.PrefHelper
 
@@ -13,6 +14,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private lateinit var preferences: PrefHelper
     private lateinit var btnLogin: Button
+    private lateinit var tvRegister: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,9 +30,16 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_login, container, false)
+        tvRegister = view.findViewById(R.id.btnRegister)
         btnLogin = view.findViewById(R.id.btnLogin)
         btnLogin.setOnClickListener {
             val fragment = HomeFragment()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.fragmentContainer, fragment)?.commit()
+        }
+
+        tvRegister.setOnClickListener {
+            val fragment = RegisterFragment()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragmentContainer, fragment)?.commit()
         }
