@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import com.example.challengechapter4.R
 import com.example.challengechapter4.helper.Constant
 import com.example.challengechapter4.helper.PrefHelper
@@ -36,6 +37,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         btnLogin = view.findViewById(R.id.btnLogin)
         btnLogin.setOnClickListener {
             preferences.put(Constant.PREF_IS_USERNAME, editUsername.text.toString())
+            preferences.put(Constant.PREF_IS_PASSWORD, editPassword.text.toString())
+            preferences.put(Constant.PREF_IS_LOGIN, true)
+            Toast.makeText(context, "Berhasil Masuk", Toast.LENGTH_SHORT).show()
             val fragment = HomeFragment()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragmentContainer, fragment)?.commit()
@@ -52,7 +56,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onStart() {
         super.onStart()
-        if (preferences.getBoolean(Constant.PREF_IS_LOGIN)){
+        if (preferences.getBoolean(Constant.PREF_IS_LOGIN, false)){
             val fragment = HomeFragment()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragmentContainer, fragment)?.commit()
