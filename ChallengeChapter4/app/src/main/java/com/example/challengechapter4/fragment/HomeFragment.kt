@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.challengechapter4.R
 import com.example.challengechapter4.databinding.FragmentHomeBinding
 import com.example.challengechapter4.helper.Constant
@@ -34,6 +35,7 @@ class HomeFragment : Fragment() {
         binding.tvHello.text = preferences.getString(Constant.PREF_IS_USERNAME)
         binding.btnLogout.setOnClickListener {
             preferences.clear()
+            Toast.makeText(context, "Berhasil Keluar", Toast.LENGTH_SHORT).show()
             val fragment = LoginFragment()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragmentContainer, fragment)?.commit()
