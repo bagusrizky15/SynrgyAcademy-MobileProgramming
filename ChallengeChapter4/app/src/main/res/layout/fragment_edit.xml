@@ -29,11 +29,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Edit Content"
+        android:minLines="3"
+        android:gravity="top"
         app:layout_constraintTop_toBottomOf="@+id/editTitle"
         app:layout_constraintStart_toStartOf="parent"/>
     <Button
-        android:id="@+id/btnEdit"
-        android:text="Apply"
+        android:id="@+id/btnUpdate"
+        android:text="Update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/editContent"
