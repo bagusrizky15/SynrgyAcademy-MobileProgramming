@@ -5,12 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.example.challengechapter4.R
-import com.example.challengechapter4.databinding.FragmentHomeBinding
 import com.example.challengechapter4.databinding.FragmentLoginBinding
 import com.example.challengechapter4.helper.Constant
 import com.example.challengechapter4.helper.PrefHelper
